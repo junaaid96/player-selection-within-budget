@@ -11,6 +11,7 @@ playerCost.addEventListener('keyup', function (event) {
     calculateBtn.addEventListener('click', function () {
         const totalPlayerExpenses = playerCostField * playerList.length;
         playerExpenses.innerText = totalPlayerExpenses;
+        event.stopPropagation;
         managerCost.addEventListener('keyup', function (event) {
             const managerCostField = parseInt(event.target.value);
             coachCost.addEventListener('keyup', function (event) {
@@ -20,7 +21,5 @@ playerCost.addEventListener('keyup', function (event) {
                 })
             })
         })
-
     })
-
 })

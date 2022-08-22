@@ -13,9 +13,8 @@ function playerSelectionProcess(selectedPlayer, selectedPlayerName) {
         const createPlayer = document.createElement("li");
         const createPlayerName = document.createTextNode(selectedPlayerName);
         createPlayer.appendChild(createPlayerName);
-        console.log(playerList.length);
         //playerList.length will count from 0 (0 to 4) as there is no list by default so I compare using number 4 (instead of 5) for not adding more than 5 players.
-        if(playerList.length > 4){
+        if (playerList.length > 4) {
             alert('Can not add more than 5 players');
             return;
         }
