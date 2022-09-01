@@ -25,7 +25,7 @@ coachCost.addEventListener('keyup', function (event) {
 })
 
 const getTotalPlayerPrice = () => {
-    var totalPrice = playerList.length * parseInt(playerCost.value);
+    const totalPrice = playerList.length * parseInt(playerCost.value);
     return totalPrice;
 }
 
