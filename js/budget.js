@@ -6,18 +6,33 @@ const managerCost = document.getElementById('manager-cost');
 const coachCost = document.getElementById('coach-cost');
 const totalCost = document.getElementById('total-cost');
 
-const managerCostField = parseInt(managerCost.value);
-const coachCostField = parseInt(coachCost.value);
-
 playerCost.addEventListener('keyup', function (event) {
-    const playerCostField = parseInt(event.target.value);
-    calculateBtn.addEventListener('click', function () {
-        const totalPlayerExpenses = playerCostField * playerList.length;
-        playerExpenses.innerText = totalPlayerExpenses;
-        event.stopPropagation;
-        document.getElementById('total-btn').addEventListener('click', function () {
-            const inTotal = totalPlayerExpenses + managerCostField + coachCostField;
-            totalCost.innerText = inTotal;
-        })
-    })
+    const playerCostField = event.target.value;
+    console.log(playerCostField);
+    playerCost.setAttribute("value", playerCostField);
+})
+
+managerCost.addEventListener('keyup', function (event) {
+    const managerCostField = event.target.value;
+    console.log(managerCostField);
+    managerCost.setAttribute("value", managerCostField);
+})
+
+coachCost.addEventListener('keyup', function (event) {
+    const coachCostField = event.target.value;
+    console.log(coachCostField);
+    coachCost.setAttribute("value", coachCostField);
+})
+
+const getTotalPlayerPrice = () => {
+    var totalPrice = playerList.length * parseInt(playerCost.value);
+    return totalPrice;
+}
+
+calculateBtn.addEventListener('click', function () {
+    playerExpenses.innerText = getTotalPlayerPrice();
+})
+
+document.getElementById('total-btn').addEventListener('click', function () {
+    totalCost.innerText = parseInt(managerCost.value) + parseInt(coachCost.value) + getTotalPlayerPrice();
 })
